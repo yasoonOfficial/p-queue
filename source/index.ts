@@ -1,8 +1,8 @@
 import * as  EventEmitter from 'eventemitter3';
-import { default as pTimeout, TimeoutError } from 'p-timeout';
 import { Queue, RunFunction } from './queue';
 import PriorityQueue from './priority-queue';
 import { QueueAddOptions, DefaultAddOptions, Options } from './options';
+import { TimeoutError, pTimeout } from './p-timeout';
 
 type ResolveFunction<T = void> = (value?: T | PromiseLike<T>) => void;
 

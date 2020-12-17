@@ -1,6 +1,6 @@
 {
 	"name": "@yasoonofficial/p-queue",
-	"version": "6.6.2",
+	"version": "6.6.3",
 	"description": "Promise queue with concurrency control",
 	"license": "MIT",
 	"funding": "https://github.com/sponsors/sindresorhus",
