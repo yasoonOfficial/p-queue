@@ -1,13 +1,13 @@
-import {Queue, RunFunction} from './queue';
+import { Queue, RunFunction } from './queue';
 import lowerBound from './lower-bound';
-import {QueueAddOptions} from './options';
+import { QueueAddOptions } from './options';
 
 export interface PriorityQueueOptions extends QueueAddOptions {
 	priority?: number;
 }
 
 export default class PriorityQueue implements Queue<RunFunction, PriorityQueueOptions> {
-	private readonly _queue: Array<PriorityQueueOptions & {run: RunFunction}> = [];
+	private readonly _queue: Array<PriorityQueueOptions & { run: RunFunction }> = [];
 
 	enqueue(run: RunFunction, options?: Partial<PriorityQueueOptions>): void {
 		options = {
@@ -20,7 +20,7 @@ export default class PriorityQueue implements Queue<RunFunction, PriorityQueueOp
 			run
 		};
 
-		if (this.size && this._queue[this.size - 1].priority! >= options.priority!) {
+		if (this.size && this._queue[this.size - 1]?.priority! >= options.priority!) {
 			this._queue.push(element);
 			return;
 		}

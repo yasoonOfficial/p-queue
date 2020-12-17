@@ -8,7 +8,7 @@ export default function lowerBound<T>(array: readonly T[], value: T, comparator:
 		const step = (count / 2) | 0;
 		let it = first + step;
 
-		if (comparator(array[it], value) <= 0) {
+		if (comparator(array[it] as any, value) <= 0) {
 			first = ++it;
 			count -= step + 1;
 		} else {

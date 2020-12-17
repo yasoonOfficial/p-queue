@@ -1,8 +1,8 @@
-import EventEmitter = require('eventemitter3');
-import {default as pTimeout, TimeoutError} from 'p-timeout';
-import {Queue, RunFunction} from './queue';
+import * as  EventEmitter from 'eventemitter3';
+import { default as pTimeout, TimeoutError } from 'p-timeout';
+import { Queue, RunFunction } from './queue';
 import PriorityQueue from './priority-queue';
-import {QueueAddOptions, DefaultAddOptions, Options} from './options';
+import { QueueAddOptions, DefaultAddOptions, Options } from './options';
 
 type ResolveFunction<T = void> = (value?: T | PromiseLike<T>) => void;
 
@@ -11,7 +11,7 @@ type Task<TaskResultType> =
 	| (() => TaskResultType);
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const empty = (): void => {};
+const empty = (): void => { };
 
 const timeoutError = new TimeoutError();
 
@@ -213,7 +213,7 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 	*/
 	private _processQueue(): void {
 		// eslint-disable-next-line no-empty
-		while (this._tryToStartAnother()) {}
+		while (this._tryToStartAnother()) { }
 	}
 
 	get concurrency(): number {
@@ -251,7 +251,7 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 							return undefined;
 						}
 					);
-					resolve(await operation);
+					resolve((await operation) as any);
 				} catch (error) {
 					reject(error);
 				}
@@ -388,4 +388,4 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
 	}
 }
 
-export {Queue, QueueAddOptions, DefaultAddOptions, Options};
+export { Queue, QueueAddOptions, DefaultAddOptions, Options };
